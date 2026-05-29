@@ -1,0 +1,18 @@
+@SystemMonitorApi_HostAddress = http://localhost:5000
+
+GET {{SystemMonitorApi_HostAddress}}/api/metrics/
+Accept: application/json
+X-Api-Key: xxZUMtWB2qWbSoDRVk75Zz6dD1DMvfGo
+
+
+###
+
+GET {{SystemMonitorApi_HostAddress}}/api/metrics/stream?apiKey=xxZUMtWB2qWbSoDRVk75Zz6dD1DMvfGo
+Accept: application/json
+
+
+###
+
+GET {{SystemMonitorApi_HostAddress}}/api/sensors
+Accept: application/json
+X-Api-Key: xxZUMtWB2qWbSoDRVk75Zz6dD1DMvfGo
