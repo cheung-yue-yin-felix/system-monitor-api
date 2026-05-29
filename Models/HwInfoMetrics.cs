@@ -7,5 +7,6 @@ public class HwInfoMetrics
     public GpuMetrics? Gpu { get; set; }
     public MemoryMetrics? Memory { get; set; }
     public List<NetworkAdapter> Network { get; set; } = [];
+    public List<DiskMetric> Disk { get; set; } = [];
     public List<SensorGroup>? Unmapped { get; set; }
 }

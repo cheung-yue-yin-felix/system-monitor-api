@@ -10,6 +10,7 @@ builder.Services.AddOpenApi();
 builder.Services.AddSingleton<IRegistryReader, RegistryReader>();
 builder.Services.AddSingleton<ISensorMapper, SensorMapper>();
 builder.Services.AddSingleton<IRegistryPoller, RegistryPoller>();
+builder.Services.AddSingleton<IDiskInfoReader, DiskInfoReader>();
 builder.Services.Configure<SensorMappingOptions>(
     builder.Configuration.GetSection(SensorMappingOptions.SectionName));
 builder.Services.Configure<SensorRegistryOptions>(

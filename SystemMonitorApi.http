@@ -1,4 +1,4 @@
-@SystemMonitorApi_HostAddress = http://localhost:5000
+@SystemMonitorApi_HostAddress = http://localhost:5232
 
 GET {{SystemMonitorApi_HostAddress}}/api/metrics/
 Accept: application/json

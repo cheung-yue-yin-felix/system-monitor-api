@@ -10,10 +10,12 @@ public partial class SensorMapper : ISensorMapper
 {
     private readonly SensorMappingOptions _options;
     private readonly Dictionary<(Type Type, string Name), PropertyInfo?> _propertyCache = new();
+    private readonly IDiskInfoReader _diskInfoReader;
 
-    public SensorMapper(IOptions<SensorMappingOptions> options)
+    public SensorMapper(IOptions<SensorMappingOptions> options, IDiskInfoReader diskInfoReader)
     {
         _options = options.Value;
+        _diskInfoReader = diskInfoReader;
     }
 
     public HwInfoMetrics MapToStructured(IReadOnlyList<HwInfoSensorValue> rawValues)
@@ -66,6 +68,13 @@ public partial class SensorMapper : ISensorMapper
                     Readings = g.Select(MapReading).ToList()
                 })
                 .ToList();
+        }
+
+        var diskMetrics = _diskInfoReader.ReadDiskMetrics();
+
+        foreach (var disk in diskMetrics)
+        {
+            metrics.Disk.Add(disk);
         }
 
         return metrics;
